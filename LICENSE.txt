@@ -1,11 +1,3 @@
-# Unofficial Textocat Python SDK
-
-This is unofficial python sdk for [Textocat](http://textocat.com).
-
-[Textocat API](http://docs.textocat.com/).
-
-# License
-
 Copyright 2015 Radik Fattakhov
 
 Licensed under the Apache License, Version 2.0 (the "License");
