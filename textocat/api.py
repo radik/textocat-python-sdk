@@ -105,7 +105,8 @@ class AnnotatedDocument(object):
         """
         """
         return AnnotatedDocument(json.get('status'),
-                                 [Entity.from_json(e) for e in json.get('entities')])
+                                 [Entity.from_json(e) for e in json.get('entities')],
+                                 tag=json.get('tag', ''))
 
 
 class Entity(object):
