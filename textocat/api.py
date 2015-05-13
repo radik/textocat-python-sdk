@@ -1,6 +1,7 @@
 import urllib
 import urlparse
 import requests
+from textocat.exceptions import raise_by_http_code
 
 BASE_URL = 'http://api.textocat.com/'
 
@@ -9,6 +10,7 @@ class ApiStatus(object):
     """
 
     """
+
     def __init__(self, status_code, message):
         """
         """
@@ -44,6 +46,7 @@ class Batch(object):
     """
 
     """
+
     def __init__(self, batch_ids, documents):
         """
         """
@@ -62,6 +65,7 @@ class Document(object):
     """
 
     """
+
     def __init__(self, text, tag=''):
         """
         """
@@ -136,6 +140,7 @@ class Entity(object):
 class SearchResult(object):
     """
     """
+
     def __init__(self, search_query, documents):
         """
         """
@@ -179,11 +184,11 @@ class TextocatApi(object):
         """
         r = requests.post(self._request_url('entity/queue'),
                           json=[x.to_dict() for x in documents])
-        print(r)
         if r.status_code == requests.codes.accepted:
             json = r.json()
             return BatchStatus(json.get('batchId'), json.get('status'))
-            # TODO: raise exception
+
+        raise_by_http_code(r.status_code)
 
     def entity_request(self, batch_id):
         """
@@ -196,7 +201,8 @@ class TextocatApi(object):
         if r.status_code == requests.codes.ok:
             json = r.json()
             return BatchStatus(json.get('batchId'), json.get('status'))
-            # TODO: raise exception
+
+        raise_by_http_code(r.status_code)
 
     def entity_retrieve(self, batch_ids):
         """
@@ -208,6 +214,8 @@ class TextocatApi(object):
         if r.status_code == requests.codes.ok:
             return Batch.from_json(r.json())
 
+        raise_by_http_code(r.status_code)
+
     def entity_search(self, query):
         """
         :param query:
@@ -218,6 +226,8 @@ class TextocatApi(object):
         if r.status_code == requests.codes.ok:
             return SearchResult.from_json(r.json())
 
+        raise_by_http_code(r.status_code)
+
     def status(self):
         """
         :return:
@@ -226,5 +236,7 @@ class TextocatApi(object):
 
         if r.status_code == requests.codes.ok:
             return ApiStatus.from_json(r.json())
+
+        raise_by_http_code(r.status_code)
 
 
