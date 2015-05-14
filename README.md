@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/radik/textocat-python-sdk.svg?branch=master)]
+(https://travis-ci.org/radik/textocat-python-sdk)
+
 # Unofficial Textocat Python SDK
 
 This is unofficial python sdk for [Textocat](http://textocat.com).
