@@ -4,6 +4,27 @@ This is unofficial python sdk for [Textocat](http://textocat.com).
 
 [Textocat API](http://docs.textocat.com/).
 
+# Installation
+
+```bash
+pip install textocat
+```
+
+# Usage
+
+```python
+from textocat.api import TextocatApi, Document
+
+api = TextocatApi(YOUR_AUTH_TOKEN)
+
+# Getting API status
+status = api.status()
+
+# Sending document for entity recognition
+documents = [Document('Hello, World!', tag='greeting')]
+batch_status = api.entity_queue(documents)
+```
+
 # License
 
 Copyright 2015 Radik Fattakhov
