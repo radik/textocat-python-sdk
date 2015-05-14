@@ -1,15 +1,19 @@
 import json
 from unittest import TestCase
-import urlparse
 
 import httpretty
 
 from textocat.api import TextocatApi, Document, BatchStatus, AnnotatedDocument, Entity
 from textocat.api import BASE_URL
 
+try:
+    from urllib.parse import urljoin
+except ImportError:
+    from urlparse import urljoin
+
 
 def _request_url(endpoint):
-    return '?'.join([urlparse.urljoin(BASE_URL, endpoint), 'auth_token=AUTH_TOKEN'])
+    return '?'.join([urljoin(BASE_URL, endpoint), 'auth_token=AUTH_TOKEN'])
 
 
 class TextocatApiTestCase(TestCase):
