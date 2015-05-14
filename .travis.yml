@@ -1,19 +1,25 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "nightly"
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
+- '2.6'
+- '2.7'
+- '3.2'
+- '3.3'
+- '3.4'
+- nightly
+install: cd textocat-python-sdk && pip install -r requirements.txt
 script: nosetests
 notifications:
   webhooks:
     urls:
-      - https://webhooks.gitter.im/e/cd22bcd5d82ff060d927
+    - https://webhooks.gitter.im/e/cd22bcd5d82ff060d927
     on_success: change
     on_failure: always
     on_start: false
+deploy:
+  provider: pypi
+  user: radik
+  password:
+    secure: YvPcPS2HDh4AwPgOTaFVMWodNgT9fEKuSpWGAEfY3MLKkzrEePEuY/bfhyfeW5FbfeBpWnXMJLo9ZSp/0oIEwfSXS3wXoYkIPz9wmL0Vt08uSKDbeipMkxAmFLXlRQZU7gqJ5hvaP/bhdbXqTE8DyLnQZFrWaMO1PNgL4m8uJab3muT3H8GwCjaa2yLpJTx4tSMm6eFow7RqpMxP6P++8OGeDShpiPoK3Vr+dYz5mvFsr7J2/OO7fokY844DXP5avOJOIHPDcEJRyqLCUVuZyY7RtAdw3CgSS93s/9Ybs6X4E2VO7ziggcsyiWicjzq4dwAiZx0EvGQVLCMcS/cL1lDZnPkJcxDArWQOngGHoyanw+EULIoD8o/qskojHRWpixQ6C3gtXNIuGluj4udf2MmVrFjAsGFdyLiuwqZ5Vy3rmAsH4sDpMQbyXA5lZKPj87QksvGFNWgMKeOu01BQmwdDDjFblWNVh1jGI8yt+w3DlC55gZ8cEOAAwAOF19W3+FEKkZl4CDorsB3cc3uhHWeChsltE9NSz0YE+bKdMAyYCGPLVD/5WSOFr55vlyPxbzClY1CxO+7OW0WYW7pfWmMFMXc5dQPDQUO+f1nNS1WUQE0b7LMZm1r24st86LscbhImCi+jCo3+LbnbTaYCF7vrhoLS5F+VPB5LBaN8ISQ=
+  on:
+    tags: true
+    repo: radik/textocat-python-sdk
