@@ -1,0 +1,19 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "nightly"
+# command to install dependencies
+install: "pip install -r requirements.txt"
+# command to run tests
+script: nosetests
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/cd22bcd5d82ff060d927
+    on_success: change
+    on_failure: always
+    on_start: false
