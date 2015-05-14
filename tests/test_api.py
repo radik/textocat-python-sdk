@@ -81,7 +81,8 @@ class TextocatApiTestCase(TestCase):
                                content_type='application/json')
 
         batch = self.api.entity_retrieve(batch_id)
-        self.assertItemsEqual([batch_id], batch.batch_ids)
+        self.assertEqual(1, len(batch.batch_ids))
+        self.assertEqual(batch_id, batch.batch_ids[0])
         self.assertEqual(1, len(batch.documents))
 
         doc = batch.documents[0]
