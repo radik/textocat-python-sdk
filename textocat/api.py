@@ -1,10 +1,14 @@
-import urllib
 import requests
 from textocat.exceptions import raise_by_http_code
 try:
     from urllib.parse import urljoin
 except ImportError:
     from urlparse import urljoin
+
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
 
 BASE_URL = 'http://api.textocat.com/'
 
@@ -178,7 +182,7 @@ class TextocatApi(object):
         :return:
         """
         return '?'.join([urljoin(BASE_URL, endpoint),
-                         urllib.urlencode({'auth_token': self.auth_token})])
+                         urlencode({'auth_token': self.auth_token})])
 
     def entity_queue(self, documents):
         """
