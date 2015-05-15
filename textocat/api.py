@@ -1,3 +1,4 @@
+# coding=utf-8
 import requests
 from textocat.exceptions import raise_by_http_code
 try:

@@ -1,3 +1,4 @@
+# coding=utf-8
 class TextocatApiException(Exception):
     def __init__(self, message, http_code):
         super(TextocatApiException, self).__init__(message)
