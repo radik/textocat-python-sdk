@@ -30,6 +30,8 @@ documents = [Document('Hello, World!', tag='greeting')]
 batch_status = api.entity_queue(documents)
 ```
 
+Other examples could be found in [examples](./examples).
+
 # License
 
 Copyright 2015 Radik Fattakhov
