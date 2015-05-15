@@ -3,6 +3,8 @@
 
 # Unofficial Textocat Python SDK
 
+[![Join the chat at https://gitter.im/radik/textocat-python-sdk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/radik/textocat-python-sdk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is unofficial python sdk for [Textocat](http://textocat.com).
 
 [Textocat API](http://docs.textocat.com/).
