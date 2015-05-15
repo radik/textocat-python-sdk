@@ -13,6 +13,8 @@ This is unofficial python sdk for [Textocat](http://textocat.com).
 pip install textocat
 ```
 
+**NOTE:** package is compatible with Python 2 and 3.
+
 # Usage
 
 ```python
