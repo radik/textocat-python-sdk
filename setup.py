@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='textocat',
-    version='0.1.1',
+    version='0.1.2',
     description='Unofficial Textocat Python SDK',
     url='http://github.com/radik/textocat-python-sdk',
     author='Radik Fattakhov',
