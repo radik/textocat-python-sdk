@@ -206,7 +206,7 @@ class TextocatApi(object):
         :return:
         """
         r = requests.get(self._request_url('entity/request'),
-                         params={'batchId': batch_id})
+                         params={'batch_id': batch_id})
         if r.status_code == requests.codes.ok:
             json = r.json()
             return BatchStatus(json.get('batchId'), json.get('status'))
@@ -219,7 +219,7 @@ class TextocatApi(object):
         :return:
         """
         r = requests.get(self._request_url('entity/retrieve'),
-                         params={'batchId': batch_ids})
+                         params={'batch_id': batch_ids})
         if r.status_code == requests.codes.ok:
             return Batch.from_json(r.json())
 
