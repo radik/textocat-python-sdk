@@ -25,7 +25,7 @@ class PermissionException(TextocatApiException):
         super(PermissionException, self).__init__('User don\'t have enough permissions.', 403)
 
 
-class CollectionNotFountException(TextocatApiException):
+class CollectionNotFoundException(TextocatApiException):
     def __init__(self):
         super(CollectionNotFountException, self).__init__('Collection not found.', 404)
 
@@ -87,7 +87,7 @@ def raise_by_http_code(http_code):
         401: UnauthorizedException,
         402: MonthlyDataLimitException,
         403: PermissionException,
-        404: CollectionNotFountException,
+        404: CollectionNotFoundException,
         405: UnsupportedMethodException,
         406: UnsupportedInputException,
         413: InputDataLimitException,
